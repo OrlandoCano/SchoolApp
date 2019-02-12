@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" name="viewport" content="width=250, initial-scale=1.0, user-scalable=yes"></meta>
+	<title>Login</title>
+	<!-- IMPORT LOGIN CSS -->
+	<link rel="stylesheet" href="resources/css/login.css"></link>
+	<!-- IMPORT BOOSTRAP -->
+	<link rel="stylesheet" href="resources/css/bootstrap.min.css"></link>
+</head>
+<body>
+
+	<div class="vertical-center">
+	
+	    <div class="container text-center col-lg-4 col-md-8 col-sm-10 col-xs-12">
+	        <img src="resources/img/logo-login.png" alt="" height="75" width="75"></img>
+
+			<form name="f" th:action="@{/login}" method="POST" >
+                <div th:if="${param.error}" class="alert alert-danger" role="alert">
+					<span class="glyphicon glyphicon-exclamation-sign"
+						aria-hidden="true"></span> <span class="sr-only">Error:</span>
+					Invalid User or Password	
+				</div>
+				<div class="form-group">
+	        		<div class="input-group input-group-md">
+	        			<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>  
+	        			<input class="form-control" type="text" placeholder="Username"  id="username" name="username" maxlength="40"></input>
+	        		</div>
+	        	</div>
+	        	<div class="form-group">
+					<div class="input-group input-group-md">
+						<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>   
+						<input type="password" class="form-control" placeholder="Password"  id="password" name="password" maxlength="60"></input>
+					</div>
+	        	</div>
+	        	<input name="${_csrf.parameterName}" type="hidden"
+					value="${_csrf.token}" ></input>
+	        	<button type="submit" class="btn btn-info col-lg-12 col-md-12 col-sm-12 col-xs-12">Login</button>
+	        </form>
+
+		</div>
+
+    </div>
+
+</body>
+</html>

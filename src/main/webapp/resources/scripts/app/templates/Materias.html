@@ -1,0 +1,50 @@
+<section ng-controller="MateriasController">
+	<div class="row">
+		<div class="col-lg-7">
+			<form role="form">
+			  <div class="form-group">
+			    <input name="id" type="hidden" class="form-control" ng-model="materia.id">
+			  </div>
+			  <div class="form-group">
+			    <label for="subjectName">Nombre:</label>
+			    <input name="subjectName" type="text" class="form-control" ng-model="materia.subjectName">
+			  </div>
+			  <div class="form-group">
+			    <label for="semester">Semestre:</label>
+			    <input name="semester" type="number" class="form-control" ng-model="materia.semester">
+			  </div>
+			  <button type="button" class="btn btn-success" ng-click="saveMateria()">Guardar</button>
+			  <button type="button" class="btn btn-primary" ng-click="clear()">New</button>
+			</form>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-7">
+			<table class="table">
+				<thead>
+					<tr>
+						<td>
+							<a href="" ng-click="predicate = 'id'; reverse=!reverse">Id </a>  <span class="glyphicon glyphicon-sort" ng-show="predicate == 'id'"></span>
+						</td>
+						<td>
+							<a href="" ng-click="predicate = 'subjectName'; reverse=!reverse"> Nombre</a> <span class="glyphicon glyphicon-sort" ng-show="predicate == 'subjectName'"></span>
+						</td>
+						<td>
+							<a href="" ng-click="predicate = 'semester'; reverse=!reverse"> Semestre </a>  <span class="glyphicon glyphicon-sort" ng-show="predicate == 'semester'"></span>
+						</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="subject in materias | orderBy:predicate:reverse" ng-class="{active : $index % 2 != 0}">
+						<td>{{ subject.id }}</td>
+						<td>{{ subject.subjectName }}</td>
+						<td>{{ subject.semester }}</td>
+						<td>
+							<button type="button" class="glyphicon glyphicon-pencil btn btn-primary" ng-click="loadMateria(subject.id)">Editar</button>
+							<button type="button" class="glyphicon glyphicon-remove btn btn-danger" ng-click="deleteMateria(subject.id)">Eliminar</button>
+						</td>
+					</tr>
+		</table>
+		</div>
+	</div>
+</section>

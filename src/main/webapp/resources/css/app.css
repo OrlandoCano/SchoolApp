@@ -1,0 +1,17 @@
+.footer {
+  background-color: #222;
+    bottom: 0;
+    color: #fff;
+    left: 0;
+    min-height: 85px;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+}
+.main-container{
+	background-color: #eaeaea;
+	height: 100%;
+}
+nav{
+	margin-bottom: 0px !important;
+}

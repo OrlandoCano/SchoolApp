@@ -1,0 +1,37 @@
+@import url(http://fonts.googleapis.com/css?family=Questrial);
+
+
+*{
+	font-family: 'Questrial', sans-serif;
+}
+
+.vertical-center {
+  	min-height: 100%;
+ 	min-height: 100vh;
+	display: flex; 
+	align-items : center;
+	width: 100vw;
+  
+}
+
+.container {
+  background: radial-gradient(ellipse at center, #ffffff 0%,#eaeaea 92%);
+
+  border-radius: 10px;
+  box-shadow: 10px 10px 24px -1px rgba(0,0,0,0.5);
+  padding: 40px;
+}
+
+form{
+	margin-top: 10%;
+}
+
+input, button{
+	padding: 20px;
+	font-size: 1.2em !important;
+	border-radius: 0 !important;
+}
+
+.input-group-addon{
+	border-radius: 0 !important;
+}

@@ -1,0 +1,48 @@
+<section ng-controller="AlumnosController">
+	<div class="row">
+		<div class="col-lg-7">
+			<form role="form">
+			  <div class="form-group">
+			    <label for="email">Nombre:</label>
+			    <input type="text" class="form-control" ng-model="alumno.firstName">
+			  </div>
+			  <div class="form-group">
+			    <label for="email">Apellido:</label>
+			    <input type="text" class="form-control" ng-model="alumno.lastName">
+			  </div>
+			  <button type="button" class="btn btn-success" ng-click="saveAlumno()">Guardar</button>
+			  <button type="button" class="btn btn-primary" ng-click="clear()">New</button>
+			</form>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-7">
+			<table class="table">
+				<thead>
+					<tr>
+						<td>
+							<a href="" ng-click="predicate = 'id'; reverse=!reverse">Id </a>  <span class="glyphicon glyphicon-sort" ng-show="predicate == 'id'"></span>
+						</td>
+						<td>
+							<a href="" ng-click="predicate = 'firstName'; reverse=!reverse"> Nombre</a> <span class="glyphicon glyphicon-sort" ng-show="predicate == 'firstName'"></span>
+						</td>
+						<td>
+							<a href="" ng-click="predicate = 'lastName'; reverse=!reverse"> Apellido </a>  <span class="glyphicon glyphicon-sort" ng-show="predicate == 'lastName'"></span>
+						</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="obj in alumnos | orderBy:predicate:reverse" ng-class="{active : $index % 2 != 0}">
+						<td>{{ obj.id }}</td>
+						<td>{{ obj.firstName }}</td>
+						<td>{{ obj.lastName }}</td>
+						<td>
+							<button type="button" class="glyphicon glyphicon-pencil btn btn-primary" ng-click="loadAlumno(obj.id)">Editar</button>
+							<button type="button" class="glyphicon glyphicon-remove btn btn-danger" ng-click="deleteAlumno(obj.id)">Eliminar</button>
+						</td>
+					</tr>
+					
+		</table>
+		</div>
+	</div>
+</section>
